@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>view status</title>
+<style>
+body{background-color:lavender;
+text-align:center;
+font-family:Bodoni MT Black;
+font-size:50px;
+margin:100px;
+}
+h2{font-family:Bodoni MT Black;
+font-size:50px;
+color:pink;}
+</style>
+</head>
+<body>
+<h2>TASKS</h2>
+<table border="1" style="border-collapse:collapse; width:80%; margin:auto;">
+    <thead>
+        <tr>
+            <th>Sno.</th>
+            <th>Tasks</th>
+            <th>Done?</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ task[1] }}</td>
+            <td><input type="checkbox"></td>
+            <td>
+                <form method="POST" action="/delete/{{ task[0] }}">
+                    <button type="submit" 
+                    style="width:auto; background-color:pink; color:white; border:none; padding:5px 10px;">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>add tasks</title>
+<style>body{background-color:lavender;
+text-align:center;
+font-family:Bodoni MT Black;
+font-size:50px;
+margin:100px;
+}
+h2{font-family:Bodoni MT Black;
+font-size:50px;
+color:pink;}
+button{width:200px;
+font-family:Bodoni MT Black;
+background-color:pink;
+color:white;
+}
+</style>
+</head>
+<body>
+<h2> ENTER YOUR TASKS</h2>
+<form method="POST" action="/add">
+<input tupe="text" name="task" placeholder="enter your task" required/>
+<button type="submit" > ADD</button>
+
+</form>
+<a href="/options"><button>Back</button></a>
+</body>
+</html>
