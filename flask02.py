@@ -1,12 +1,18 @@
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask , render_template , request , redirect , url_for
 import pymysql
+import os
 pymysql.install_as_MySQLdb()
 app=Flask(__name__)
 def get_db():return pymysql.connect(
-    host="localhost",
-    user="root",
-    password="himani",
-    database="to_do_list")
+    host=os.environ.get("DB_HOST"),
+    port=int(os.environ.get("DB_PORT")),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_DATABASE"),
+    ssl={"ssl":{}}
+)
 @app.route("/")
 def todo():
     return render_template("todo.html")
@@ -46,7 +52,15 @@ def delete(task_id):
     cursor.execute("delete from task where id=%s;",(task_id,))
     db.commit()
     cursor.close()
-    db.close()
+    db.close()    
     return redirect(url_for("view"))
+#PWA CODE (to create an app icon after deploying)
+@app.route("/manifest.json")
+def manifest():
+    return send_from_directory(".", "manifest.json")
+app.route("/service-worker.js")
+def service_worker():
+    return send_from_directory(".", "service_worker.js")
+
 if __name__==("__main__"):
     app.run(debug=True)
