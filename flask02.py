@@ -60,7 +60,7 @@ def manifest():
     return send_from_directory(".", "manifest.json")
 @app.route("/service-worker.js")
 def service_worker():
-    return send_from_directory(".", "service_worker.js")
+    return send_from_directory(".", "service-worker.js")
 
 if __name__==("__main__"):
     app.run(debug=True)
