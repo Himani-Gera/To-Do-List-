@@ -58,7 +58,7 @@ def delete(task_id):
 @app.route("/manifest.json")
 def manifest():
     return send_from_directory(".", "manifest.json")
-app.route("/service-worker.js")
+@app.route("/service-worker.js")
 def service_worker():
     return send_from_directory(".", "service_worker.js")
 
