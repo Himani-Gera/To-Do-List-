@@ -1,6 +1,8 @@
 <html>
 <head>
 <title>My To-Do List</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#f6a9b3">
 <style> body{
 background-color:lavender;
 align-items:center;
@@ -18,5 +20,10 @@ text-align:center;}
 <button>Enter</button>
 </a>
 </div>
+<script>
+    if ('serviceworker' in navigator){
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</script>
 </body>
 </html>
