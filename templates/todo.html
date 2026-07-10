@@ -4,69 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <style>
-        html, body {
-            margin:0;
-            padding:0;
-            height:100%;
-            background:#000; /* letterbox color if screen ratio differs from image */
-        }
-
-        /* This wrapper locks to the image's own aspect ratio (735:1050)
-           so the box position never drifts between screen sizes */
-        .bg-wrapper {
-            position:relative;
-            width:100vw;
-            height:100vh;
-            margin:0 auto;
-            background-image:url('static/catbg.jpeg');
-            background-size:contain;
-            background-position:center;
-            background-repeat:no-repeat;
-        }
-
-        .entry-box {
-            position:absolute;
-            top:33%;
-            left:51%;
-            transform:translate(-50%,-50%);
-            text-align:center;
-            width:40%;
-        }
-
-        .entry-box h1 {
-            font-family:Gorditas, serif;
-            font-weight:700;
-            color:#1a1a1a;
-            margin:0 0 6%;
-            letter-spacing:0.5px;
-            font-size:clamp(14px, 3vw, 34px);
-            text-align:center;
-        }
-
-        .entry-box a {
-            display:inline-block;
-            width:20%;
-            padding:2% 0;
-            background:#596BB5;
-            color:white;
-            text-decoration:none;
-            font-family:Gorditas, serif;
-            font-weight:700;
-            letter-spacing:1px;
-            border-radius:999px;
-            box-shadow:0px 2px 5px rgba(0,0,0,0.3);
-            text-transform:uppercase;
-            font-size:clamp(10px, 1.4vw, 18px);
-        }
-    </style>
 </head>
-<body>
-    <div class="bg-wrapper">
-        <div class="entry-box">
-            <h1>To-Do List</h1>
-            <a href="/login">Enter</a>
-        </div>
+
+<body
+    style="
+        margin:0;
+        padding:0;
+        height:100vh;
+        background-image:url('static/todobg.jpeg');
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    ">
+
+    <div style="text-align:center;">
+
+        <!-- Title -->
+        <h1
+            style="
+                font-family:Gorditas, serif;
+                font-size:40px;
+                color:#000000;
+                margin-bottom:80px;
+            ">
+            To-Do List
+        </h1>
+
+        <!-- Enter Button -->
+        <a href="/login"
+           style="
+                display:inline-block;
+                width:159px;
+                height:34px;
+                line-height:34px;
+                background:#596BB5;
+                color:white;
+                text-decoration:none;
+                font-family:Gorditas, serif;
+                font-size:20px;
+                border-radius:12px;
+                box-shadow:0px 4px 8px rgba(0,0,0,0.35);
+                text-align:center;
+           ">
+            Enter
+        </a>
+
     </div>
+
 </body>
 </html>
