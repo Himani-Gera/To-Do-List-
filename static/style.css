@@ -1,0 +1,155 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+
+body{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("bg.jpeg");
+    background-size:cover;
+    background-position:center;
+}
+
+
+/* Main notebook area */
+
+.home-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+/* Paper card */
+
+.notebook-card{
+
+    width:380px;
+    height:520px;
+
+    background:#fff5f8;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    padding-top:90px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.15);
+
+    position:relative;
+
+}
+
+
+/* Heading */
+
+h1{
+
+    font-size:65px;
+    letter-spacing:4px;
+
+    color:#e85d9e;
+
+    font-weight:700;
+
+}
+
+
+h2{
+
+    font-size:45px;
+
+    color:#ff8fab;
+
+    margin-top:-10px;
+
+}
+
+
+
+/* Quote */
+
+.quote{
+
+    margin-top:35px;
+
+    font-size:18px;
+
+    color:#777;
+
+    line-height:1.6;
+
+}
+
+
+
+/* Button */
+
+.enter-btn{
+
+    margin-top:45px;
+
+    width:160px;
+    height:55px;
+
+    border-radius:30px;
+
+    border:3px solid #ff8fab;
+
+    background:#ffcad4;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+.enter-btn:hover{
+
+    background:#ff8fab;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* Stars */
+
+.stars{
+
+    position:absolute;
+
+    bottom:35px;
+
+    width:100%;
+
+    color:#ffd166;
+
+    font-size:25px;
+
+    letter-spacing:15px;
+
+}

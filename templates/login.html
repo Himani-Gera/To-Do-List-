@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Who's this?</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbdfc6;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .box {
+    background: #fff;
+    border: 2px solid #f8cdd4;
+    border-radius: 12px;
+    padding: 32px 28px;
+    width: 300px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.08);
+  }
+  h2 { margin-top: 0; color: #1a1a1a; }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 14px 0;
+    border: 2px solid #f6a9b3;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #f6a9b3;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover { background: #f39aa6; }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h2>What's your name?</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="e.g. Himani" required>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+</body>
+</html>
