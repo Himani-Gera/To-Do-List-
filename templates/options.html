@@ -1,27 +1,62 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>My To-Do List</title>
-<style> body{background-color:lavender;
-text-align:center;
-margin-top:100px;
-}
-h1{font-family:Bodoni MT Black;
-font-size:50px;
-color:pink;
-}
-button{ width:200px;
-background-color:pink;
-}
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbdfc6;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .box {
+    background: #fff;
+    border: 2px solid #f8cdd4;
+    border-radius: 12px;
+    padding: 32px 28px;
+    width: 300px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.08);
+  }
+  h1 {
+    margin-top: 0;
+    color: #1a1a1a;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #f6a9b3;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #f39aa6;
+  }
+  a {
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
-<h1>choose options</h1>
+<div class="box">
+<h1>Choose Options</h1>
 <a href="/add">
 <button>ADD TASK</button>
 </a>
-<br>
 <a href="/view">
 <button>VIEW STATUS</button>
 </a>
+</div>
 </body>
 </html>

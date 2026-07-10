@@ -1,46 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>view status</title>
+<meta charset="UTF-8">
+<title>View Status</title>
 <style>
-body{background-color:lavender;
-text-align:center;
-font-family:Bodoni MT Black;
-font-size:50px;
-margin:100px;
-}
-h2{font-family:Bodoni MT Black;
-font-size:50px;
-color:pink;}
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbdfc6;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .box {
+    background: #fff;
+    border: 2px solid #f8cdd4;
+    border-radius: 12px;
+    padding: 32px 28px;
+    width: 600px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.08);
+  }
+  h2 {
+    margin-top: 0;
+    color: #1a1a1a;
+    font-size: 35px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th {
+    background: #f6a9b3;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+  }
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #f8cdd4;
+    font-size: 15px;
+  }
+  input[type="checkbox"] {
+    transform: scale(1.3);
+  }
+  button {
+    background: #f6a9b3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #f39aa6;
+  }
 </style>
 </head>
 <body>
-<h2>TASKS</h2>
-<table border="1" style="border-collapse:collapse; width:80%; margin:auto;">
-    <thead>
-        <tr>
-            <th>Sno.</th>
-            <th>Tasks</th>
-            <th>Done?</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ task[1] }}</td>
-            <td><input type="checkbox"></td>
-            <td>
-                <form method="POST" action="/delete/{{ task[0] }}">
-                    <button type="submit" 
-                    style="width:auto; background-color:pink; color:white; border:none; padding:5px 10px;">
-                        Delete
-                    </button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="box">
+<h2>Tasks</h2>
+<table>
+<thead>
+<tr>
+    <th>Sno.</th>
+    <th>Tasks</th>
+    <th>Done?</th>
+    <th>Delete</th>
+</tr>
+</thead>
+<tbody>
+{% for task in tasks %}
+<tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ task[1] }}</td>
+    <td>
+        <input type="checkbox">
+    </td>
+    <td>
+        <form method="POST" action="/delete/{{ task[0] }}">
+            <button type="submit">
+                Delete
+            </button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table><br>
+<a href="/options">
+<button>Back</button>
+</a>
+</div>
 </body>
 </html>

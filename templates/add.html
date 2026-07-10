@@ -1,29 +1,72 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>add tasks</title>
-<style>body{background-color:lavender;
-text-align:center;
-font-family:Bodoni MT Black;
-font-size:50px;
-margin:100px;
-}
-h2{font-family:Bodoni MT Black;
-font-size:50px;
-color:pink;}
-button{width:200px;
-font-family:Bodoni MT Black;
-background-color:pink;
-color:white;
-}
+<meta charset="UTF-8">
+<title>Add Tasks</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbdfc6;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .box {
+    background: #fff;
+    border: 2px solid #f8cdd4;
+    border-radius: 12px;
+    padding: 32px 28px;
+    width: 300px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.08);
+  }
+  h2 {
+    margin-top: 0;
+    color: #1a1a1a;
+    font-size: 30px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 14px 0;
+    border: 2px solid #f6a9b3;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #f6a9b3;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #f39aa6;
+  }
+  a {
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
-<h2> ENTER YOUR TASKS</h2>
+<div class="box">
+<h2>Enter Your Tasks</h2>
 <form method="POST" action="/add">
-<input tupe="text" name="task" placeholder="enter your task" required/>
-<button type="submit" > ADD</button>
-
+<input type="text" name="task" placeholder="Enter your task" required>
+<button type="submit">ADD</button>
 </form>
-<a href="/options"><button>Back</button></a>
+<a href="/options">
+<button>Back</button>
+</a>
+</div>
 </body>
 </html>

@@ -1,29 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>My To-Do List</title>
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#f6a9b3">
-<style> body{
-background-color:lavender;
-align-items:center;
-font-family:Bodoni MT Black;}
-.container{
-text-align:center;}
-h1{font-size:50px;
-color:pink;
-text-align:center;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
 </head>
-<body>
-<h1>My To-Do List</h1>
-<a href="/login">
-<button>Enter</button>
-</a>
+<body
+style="
+    margin:0;
+    padding:0;
+    height:100vh;
+    background-image:url('static/catbg.jpeg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    position:relative;
+">
+   <div
+style="
+    position:absolute;
+    top:14%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    width:100%;
+    max-width:480px;
+">
+    <!-- Title -->
+    <h1
+    style="
+        font-family:Gorditas, serif;
+        font-size:40px;
+        font-weight:700;
+        color:#1a1a1a;
+        margin:0 0 14px 0;
+        letter-spacing:1px;
+    ">
+        To-Do List
+    </h1>
+    <!-- Enter Button -->
+    <a href="/login"
+    style="
+        display:inline-block;
+        width:159px;
+        height:34px;
+        line-height:34px;
+        background:#596BB5;
+        color:white;
+        text-decoration:none;
+        font-family:Gorditas, serif;
+        font-size:20px;
+        font-weight:700;
+        letter-spacing:1px;
+        border-radius:18px;
+        box-shadow:0px 4px 8px rgba(0,0,0,0.3);
+        text-align:center;
+        text-transform:uppercase;
+    ">
+        Enter
+    </a>
 </div>
-<script>
-    if ('serviceworker' in navigator){
-        navigator.serviceWorker.register('/service-worker.js');
-    }
-</script>
 </body>
 </html>
