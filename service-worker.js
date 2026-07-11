@@ -1,40 +1,43 @@
-const CACHE_NAME = "todo-list-cache-v2"; // bump this every time you deploy changes
+const CACHE_NAME = "todo-list-cache-v3"; // bump again since we're fixing it
 
 const urlsToCache = [
   "/",
-  "/static/todobg.jpeg",      // replace with your actual cat background image
+  "/todo",
+  "/options",
+  "/login",
+  "/add",
+  "/view",
+  "/static/todobg.jpeg",
   "/static/icon-192.png",
   "/static/icon-512.png"
 ];
 
-// Install: cache static files
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then((cache) => {
+      return Promise.all(
+        urlsToCache.map((url) =>
+          cache.add(url).catch((err) => console.log("Failed to cache:", url, err))
+        )
+      );
+    })
   );
   self.skipWaiting();
 });
 
-// Activate: clean up old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
-        })
-      )
+      Promise.all(keys.map((key) => (key !== CACHE_NAME ? caches.delete(key) : null)))
     )
   );
   self.clients.claim();
 });
 
-// Fetch: network-first for pages, cache-first for static assets
 self.addEventListener("fetch", (event) => {
   const isHTML = event.request.mode === "navigate";
 
   if (isHTML) {
-    // Try live version first (fresh tasks), fallback to cached page if offline
     event.respondWith(
       fetch(event.request)
         .then((response) => {
@@ -45,7 +48,6 @@ self.addEventListener("fetch", (event) => {
         .catch(() => caches.match(event.request))
     );
   } else {
-    // Static assets: serve from cache first, fallback to network
     event.respondWith(
       caches.match(event.request).then((cached) => cached || fetch(event.request))
     );
