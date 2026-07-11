@@ -5,6 +5,8 @@ import pymysql
 import os
 pymysql.install_as_MySQLdb()
 app=Flask(__name__)
+from datetime import timedelta
+app.permanent_session_lifetime=timedelta(days=7)
 app.secret_key=os.environ.get('SECRET_KEY',"dev-secret-change-this")
 def get_db():return pymysql.connect(
     host=os.environ.get("DB_HOST"),
@@ -22,6 +24,7 @@ def login():
     if request.method=="POST":
         username=request.form["username"]
         if username:
+            session.permanent=True
             session["username"]=username
             return redirect(url_for("options"))
     return render_template("login.html")
