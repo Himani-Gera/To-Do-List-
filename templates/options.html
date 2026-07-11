@@ -57,6 +57,18 @@
 <a href="/view">
 <button>VIEW STATUS</button>
 </a>
+<a href="/login">
+<button>Log out</button>
+</a>
 </div>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((reg) => console.log('Service Worker registered:', reg))
+        .catch((err) => console.log('Service Worker registration failed:', err));
+    });
+  }
+</script>
 </body>
 </html>
